@@ -1,0 +1,269 @@
+/* Base Styles */
+*{
+    font-family: "Poppins", sans-serif;
+}
+body {
+    font-family: "Poppins", sans-serif;
+    background-image: url(./assets/BG.png);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Start Screen */
+  #start-screen, #game-screen, #result-screen, #leaderboard-screen {
+    padding: 20px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  #game-screen {
+    position: relative;
+    height: 100vh; /* Full height of the screen */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Keeps canvas at top */
+     /* Space for question box */
+  }
+  
+  
+  input, button {
+    padding: 10px 15px;
+    font-size: 16px;
+    margin: 10px;
+    width: 80%; /* Make input/button responsive */
+    max-width: 300px; /* Prevent too large on wide screens */
+    box-sizing: border-box;
+  }
+  
+  /* Game UI */
+  #player-info {
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  
+  #question-box {
+    position: absolute;
+     /* Distance from the bottom of screen */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+
+    /* Glassmorphism Design */
+  background: #ffffff10;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  padding: 30px;
+  border-radius: 20px;
+  margin: 20px auto;
+  max-width: 500px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.5s ease-in;
+  text-align: center;
+  color: #fff; /* Optional: Better contrast on dark/blurred bg */
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Game Canvas */
+  #gameCanvas {
+    border: 2px solid #444;
+    background-color: #e0f7fa;
+    margin-top: 20px;
+    width: 100%; /* Ensure canvas is responsive */
+    max-width: 800px; /* Max width for large screens */
+    height: auto;
+  }
+  
+  
+  /* Mobile responsiveness */
+  @media screen and (max-width: 768px) {
+    body {
+      padding: 10px;
+    }
+    
+  
+    #start-screen, #game-screen, #result-screen, #leaderboard-screen {
+      padding: 10px;
+    }
+  
+    input, button {
+      width: 90%; /* Full width on mobile */
+      font-size: 14px; /* Slightly smaller font for mobile */
+    }
+  
+    #gameCanvas {
+      width: 100%; /* Canvas is full width on mobile */
+      height: 200px; /* Adjust height for mobile screens */
+    }
+  }
+  
+  /* Small Mobile Screens (max-width: 480px) */
+  @media screen and (max-width: 480px) {
+    #player-info {
+      font-size: 14px;
+    }
+  
+    #question-box {
+      font-size: 14px;
+    }
+    
+    input, button {
+      font-size: 14px; /* Smaller input and button font size */
+    }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .custom-alert {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .custom-alert-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .custom-alert-content h3 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .custom-alert-content p {
+    font-size: 18px;
+    color: #555;
+  }
+  
+  .custom-alert-content button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .custom-alert-content button:hover {
+    background-color: #45a049;
+  }
+  /* This is for confirm*/
+  .custom-confirm {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .custom-confirm-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .custom-confirm-content button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .custom-confirm-content button:first-child {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .custom-confirm-content button:last-child {
+    background-color: #f44336;
+    color: white;
+  }
+  .pulse-owl {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 250px;
+    height: auto;
+    animation: pulse 3s ease-in-out infinite;
+    z-index: 100;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.9;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  a[title] {
+    position: relative;
+  }
+  
+  a[title]::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 120%;
+    right: 0;
+    background-color: #333;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(5px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+  }
+  
+  a[title]:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  
+  

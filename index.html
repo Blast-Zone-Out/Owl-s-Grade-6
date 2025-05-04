@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fraction Hero</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="start-screen">
+    <h1>🦉 Owl's Fraction Hero</h1>
+    <input type="text" id="player-name" placeholder="Enter your name">
+    <button onclick="startGame()">Start Game</button>
+  </div>
+
+  <div id="game-screen" style="display:none;">
+    <div id="player-info">Hero: <span id="playerDisplay"></span> | Score: <span id="scoreDisplay">0</span></div>
+    <canvas id="gameCanvas" width="800" height="300"></canvas>
+    <div id="question-box"></div>
+  </div>
+  
+
+  <div id="result-screen" style="display:none;">
+    <h2>🎉 Game Over!</h2>
+    <p>Your Score: <span id="finalScore"></span></p>
+    <button onclick="showLeaderboard()">View Leaderboard</button>
+  </div>
+
+
+  <div id="leaderboard-screen" style="display:none;">
+    <h2>🏆 Top Heroes</h2>
+    <ul id="leaderboardList"></ul>
+    <button onclick="location.reload()">Play Again</button>
+  </div>
+
+  <div class="custom-alert" id="customAlert">
+    <div class="custom-alert-content">
+      <h3>Notice</h3>
+      <p>This is a custom alert message.</p>
+      <button onclick="closeCustomAlert()">OK</button>
+    </div>
+  </div>
+
+  <div class="custom-confirm" id="customConfirm">
+    <div class="custom-confirm-content">
+      <h3 id="confirmTitle">Confirm</h3>
+      <p id="confirmMessage">Are you sure?</p>
+      <button onclick="handleConfirm(true)">Yes</button>
+      <button onclick="handleConfirm(false)">No</button>
+    </div>
+  </div>
+  <a href="#" onclick="showCustomAlert('🦉 I\'m your guide! Need help? Use the hints or tutorials during the game.')"
+  title="Need help?">
+ <img src="./assets/owl 2.png" alt="Owl Mascot" class="pulse-owl">
+</a>
+
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
